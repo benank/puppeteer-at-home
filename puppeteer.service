@@ -4,16 +4,18 @@ Description=Puppeteer At Home Service
 After=network.target
 
 [Service]
-# Edit this
-ExecStart=/usr/bin/npm --prefix /home/benank/code/puppeteer-at-home run start
-# Edit this
+# Set the home directory - edit this
+Environment=HOME=/home/benank
+# Direct execution with bash - edit this
+ExecStart=/bin/bash -c 'source /home/benank/.nvm/nvm.sh && cd /home/benank/code/puppeteer-at-home && npx vite-node src/server.ts'
+# Working directory - edit this
 WorkingDirectory=/home/benank/code/puppeteer-at-home
 Restart=always
 RestartSec=10
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=puppeteer-service
-# Edit this
+# User - edit this
 User=benank
 
 [Install]
