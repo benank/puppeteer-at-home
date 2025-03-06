@@ -16,27 +16,27 @@ sudo apt update && sudo apt upgrade
 sudo apt install chromium-browser
 ```
 3. Install [nvm](https://github.com/nvm-sh/nvm). After installing, run this command: `nvm install v22` to install NodeJS 22.
-3. Follow [this guide](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/) to create a Cloudflare Tunnel. For environment, choose `Debian -> arm64-bit`, and then copy and run the commands from the **Install and run a connector** section, which should look something like the ones below:
+4. Follow [this guide](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/) to create a Cloudflare Tunnel. For environment, choose `Debian -> arm64-bit`, and then copy and run the commands from the **Install and run a connector** section, which should look something like the ones below:
 ```bash
 curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64.deb && 
 sudo dpkg -i cloudflared.deb && 
 sudo cloudflared service install YOUR_TOKEN_HERE
 ```
-4. After installing and configuring `cloudflared` with the above commands, you should see it reporting as healthy on the Cloudflare dashboard.
-5. Now add two public hostnames to your tunnel on the dashboard:
+5. After installing and configuring `cloudflared` with the above commands, you should see it reporting as healthy on the Cloudflare dashboard.
+6. Now add two public hostnames to your tunnel on the dashboard:
  - Hostname 1:
     - Subdomain: anything, such as `puppeteer`
     - Domain: one of your domains
     - Service type: HTTP
-    - URL: `localhost:3000`
+    - Service URL: `localhost:3000`
 
  - Hostname 2:
     - Subdomain: anything (different than the above), like `puppeteer-ws`
     - Domain: one of your domains
     - Service type: HTTP
-    - URL: `localhost:3001`
+    - Service URL: `localhost:3001`
 
-6. Create a `.env` file with the following contents (fill out `AUTH_TOKEN` and `PUBLIC_DOMAIN` with your own):
+7. Create a `.env` file with the following contents (fill out `AUTH_TOKEN` and `PUBLIC_DOMAIN` with your own):
 ```
 AUTH_TOKEN="RANDOM_TOKEN"
 PORT=3000
@@ -44,8 +44,8 @@ WS_PROXY_PORT=3001
 PUBLIC_DOMAIN="HOSTNAME_2_DOMAIN"
 # eg. puppeteer-ws.example.com
 ```
-7. Run `npm install`
-8. Run `npm run start` to start puppeteer at home.
+8. Run `npm install`
+9. Run `npm run start` to start puppeteer at home.
 
 
 ### Install as a service
@@ -128,7 +128,7 @@ Keep in mind that closing inactive tabs is not strictly necessary - puppeteer at
 
 ### Why?
 
-There are a lot of solutions already out there to do browser rendering, such as [Cloudflare Browser Rendering](velopers.cloudflare.com/browser-rendering/) or [Browserless](https://www.browserless.io/). But running at home can often be cheaper, more stable (surprisingly), gives you more control, and be more fun! 
+There are a lot of solutions already out there to do browser rendering, such as [Cloudflare Browser Rendering](https://developers.cloudflare.com/browser-rendering/) or [Browserless](https://www.browserless.io/). But running at home can often be cheaper, more stable (surprisingly), gives you more control, and can be more fun! 
 
 ### Why is there a websocket proxy?
 
