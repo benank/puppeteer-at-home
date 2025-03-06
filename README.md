@@ -9,7 +9,7 @@ Running puppeteer at home allows you to have complete control over the service, 
 > [!NOTE]
 > This guide was originally written for the Raspberry Pi 4, but it should be mostly compatible with any mini computer. If you're not using Linux, you'll need to modify more code to make it work.
 
-1. Install Raspberry Pi OS on your Raspberry Pi.
+1. Install [Raspberry Pi OS](https://www.raspberrypi.com/software/) on your Raspberry Pi.
 2. Connect to your Raspberry Pi and run the following commands:
 ```bash
 sudo apt update && sudo apt upgrade
