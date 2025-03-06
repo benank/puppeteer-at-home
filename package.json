@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-service",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npx vite-node src/server.ts"
+  },
+  "keywords": [],
+  "author": "benank",
+  "description": "Puppeteer at home",
+  "dependencies": {
+    "puppeteer": "^24.3.1",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/ws": "^8.18.0",
+    "dotenv": "^16.4.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "vite-node": "^3.0.7"
+  }
+}

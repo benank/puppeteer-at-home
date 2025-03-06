@@ -1,0 +1,20 @@
+# puppeteer.service
+[Unit]
+Description=Puppeteer At Home Service
+After=network.target
+
+[Service]
+# Edit this
+ExecStart=/usr/bin/npm --prefix /home/benank/code/puppeteer-at-home run start
+# Edit this
+WorkingDirectory=/home/benank/code/puppeteer-at-home
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=puppeteer-service
+# Edit this
+User=benank
+
+[Install]
+WantedBy=multi-user.target
